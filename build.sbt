@@ -1,4 +1,4 @@
-import scalariform.formatter.preferences.{CompactControlReadability, DoubleIndentClassDeclaration, PreserveSpaceBeforeArguments, SpacesAroundMultiImports}
+//import scalariform.formatter.preferences.{CompactControlReadability, DoubleIndentClassDeclaration, PreserveSpaceBeforeArguments, SpacesAroundMultiImports}
 import de.heikoseeberger.sbtheader.HeaderPattern
 
 name := "akka-stream-kafka"
@@ -28,7 +28,7 @@ val coreDependencies = Seq(
 )
 
 val commonSettings =
-  scalariformSettings ++ Seq(
+  Seq(
   organization := "com.typesafe.akka",
   organizationName := "Lightbend",
   startYear := Some(2014),
@@ -50,11 +50,6 @@ val commonSettings =
   "-Xfuture"
 ),
 testOptions += Tests.Argument(TestFrameworks.JUnit, "-q", "-v"),
-  ScalariformKeys.preferences := ScalariformKeys.preferences.value
-  .setPreference(DoubleIndentClassDeclaration, true)
-  .setPreference(PreserveSpaceBeforeArguments, true)
-  .setPreference(CompactControlReadability, true)
-  .setPreference(SpacesAroundMultiImports, false),
 headers := headers.value ++ Map(
   "scala" -> (
     HeaderPattern.cStyleBlockComment,
